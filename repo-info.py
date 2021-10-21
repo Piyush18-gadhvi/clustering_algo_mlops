@@ -4,7 +4,7 @@ import requests
 API_ENDPOINT = "http://115.115.91.60:5432/train"
 # data to be sent to api
 data = {
-	"url": "https://github.com/Piyush18-gadhvi/regression_wine_algo.git",
+	"url": "https://github.com/Piyush18-gadhvi/clustering_algo_mlops.git",
 	"branch_name": "master",
 	"user_name": "gadhvipiyush705@gmail.com"
 }
