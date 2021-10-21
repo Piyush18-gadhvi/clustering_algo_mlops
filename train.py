@@ -33,10 +33,12 @@ y_train = sc_y.fit_transform(y_train)"""
 # Using the elbow method to find the optimal number of clusters
 from sklearn.cluster import KMeans
 wcss = []
-for i in range(1, 11):
-    kmeans = KMeans(n_clusters = i, init = 'k-means++', random_state = 42)
-    kmeans.fit(X)
-    wcss.append(kmeans.inertia_)
+with mlflow.start_run():
+    for i in range(1, 11):
+        kmeans = KMeans(n_clusters = i, init = 'k-means++', random_state = 42)
+        kmeans.fit(X)
+        wcss.append(kmeans.inertia_)
+        mlflow.sklearn.log_model(kmeans, "model")
 #plt.plot(range(1, 11), wcss)
 #plt.title('The Elbow Method')
 #plt.xlabel('Number of clusters')
